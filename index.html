@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Arterial Ecoguiado: Guía Completa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET Y ESTILOS GLOBALES --- */
+        :root {
+            --primary-color: #005A9C;
+            --secondary-color: #17a2b8;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --white-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.8;
+            background-color: var(--light-color);
+        }
+
+        /* --- CONTENEDOR Y LAYOUT --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- TIPOGRAFÍA --- */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; border-left: 5px solid var(--secondary-color); padding-left: 15px; }
+        h3 { font-size: 1.5rem; color: var(--dark-color); }
+        
+        p { margin-bottom: 1.5rem; }
+        a { color: var(--secondary-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+        a:hover { color: var(--primary-color); }
+
+        /* --- COMPONENTES DE DISEÑO --- */
+        .card {
+            background-color: var(--white-color);
+            border-radius: 12px;
+            padding: 30px 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border-left: 7px solid var(--primary-color);
+        }
+
+        .card-highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white-color);
+            border-left: none;
+        }
+        .card-highlight h2, .card-highlight h3, .card-highlight p, .card-highlight li { color: var(--white-color); }
+        .card-highlight a { color: #f0f0f0; border-bottom: 1px dotted #f0f0f0; }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        /* --- HEADER / HERO SECTION --- */
+        .hero-banner {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://somnozzz.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-70.png') no-repeat center center/cover;
+            opacity: 0.2;
+            filter: grayscale(50%);
+        }
+        .hero-banner .container {
+            position: relative;
+        }
+        .hero-banner h1 {
+            color: var(--white-color);
+            font-size: 3.5rem;
+        }
+        .hero-banner p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- NAVEGACIÓN RÁPIDA --- */
+        #quick-nav {
+            background-color: #eef5fb;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        #quick-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 0;
+        }
+        #quick-nav li {
+            padding: 0;
+            margin: 0;
+        }
+        #quick-nav li::before {
+            content: none;
+        }
+        #quick-nav a {
+            display: block;
+            background-color: var(--white-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        #quick-nav a:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- SECCIONES ESPECÍFICAS --- */
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .pros-cons-grid h3 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        /* --- ACORDEÓN --- */
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 15px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .accordion-header:hover { color: var(--secondary-color); }
+        .accordion-header::after {
+            content: '+';
+            position: absolute;
+            right: 10px;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            padding-left: 15px;
+        }
+
+        /* --- BIBLIOGRAFÍA Y FOOTER --- */
+        #bibliografia {
+            font-size: 0.85rem;
+        }
+        #bibliografia ol {
+            padding-left: 20px;
+        }
+        #bibliografia li {
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            margin-top: 50px;
+        }
+
+        /* --- ANIMACIONES DE SCROLL --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-banner">
+        <div class="container">
+            <h1>Acceso Arterial Ecoguiado</h1>
+            <p>Una guía completa sobre la anatomía, ventajas, desventajas y técnicas para la cateterización arterial radial y femoral, esencial en cuidados intensivos y quirófano.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="indice" class="fade-in">
+            <div class="card">
+                <h3>¿Qué encontrarás en este artículo?</h3>
+                <nav id="quick-nav">
+                    <ul>
+                        <li><a href="#introduccion">Introducción</a></li>
+                        <li><a href="#contraindicaciones">Contraindicaciones</a></li>
+                        <li><a href="#complicaciones">Complicaciones</a></li>
+                        <li><a href="#arteria-radial">Arteria Radial</a></li>
+                        <li><a href="#arteria-femoral">Arteria Femoral</a></li>
+                        <li><a href="#recomendaciones">Recomendaciones</a></li>
+                        <li><a href="#bibliografia">Bibliografía</a></li>
+                    </ul>
+                </nav>
+                <p style="text-align: center; margin-top: 20px;">Para conocer más sobre las ventajas e inconvenientes de los accesos radial y femoral, permanece en esta página y lee la entrada completa.</p>
+            </div>
+        </section>
+
+        <section id="introduccion" class="fade-in">
+            <h2>Introducción al Procedimiento</h2>
+            <div class="card">
+                <p>La cateterización arterial es uno de los procedimientos más realizados en las unidades de cuidados intensivos y en los quirófanos. Tanto es así, que esta intervención se ha convertido en un procedimiento básico y cotidiano en todas las unidades criticas del pais.</p>
+                <p>Su principal objetivo es la monitorización continua de las variables hemodinámicas, las cuales pueden cambiar rápidamente en pacientes críticamente enfermos o sometidos a cirugía mayor. La monitorización de la presión arterial se puede realizar mediante el cateterismo de diferentes arterias. Para saber cuál seleccionar en cada paciente es importante conocer la anatomía específica de cada sitio de inserción, así como las ventajas e inconvenientes de cada acceso.</p>
+                <ul>
+                    <li>Conocer la anatomía específica nos permitirá determinar los puntos de referencia, la profundidad y la relación con estructuras adyacentes.</li>
+                    <li>Conocer las ventajas e inconvenientes de cada acceso nos orientará para seleccionar el mejor para cada paciente.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contraindicaciones" class="fade-in">
+            <h2>Contraindicaciones para la Canalización</h2>
+            <div class="card">
+                <p>Como en cualquier procedimiento, para la canalización arterial también existen contraindicaciones; cuando nos encontremos con ellas, no se debería realizar la canalización, a menos que existan circunstancias atenuantes.</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">Contraindicaciones Absolutas</button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>La arteria no es palpable ni detectable por ecografía.</li>
+                            <li>Arteria inadecuada (ej. fístula de diálisis, trombosis).</li>
+                            <li>Flujo sanguíneo colateral inadecuado.</li>
+                            <li>Quemaduras de tercer grado en la zona.</li>
+                            <li>Infección local en el sitio de inserción.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Contraindicaciones Relativas</button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Coagulopatía, incluida la anticoagulación terapéutica.</li>
+                            <li>Ateroesclerosis moderada a grave.</li>
+                            <li>Flujo de garantías insuficiente.</li>
+                            <li>Quemaduras de segundo grado en la zona.</li>
+                            <li>Historia de cirugías previas en la zona.</li>
+                            <li>Isquemia / gangrena de la extremidad distal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="complicaciones" class="fade-in">
+            <h2>Posibles Complicaciones</h2>
+            <div class="card">
+                 <p>La canalización arterial no es una técnica exenta de complicaciones, la mayoría de las ocasiones son de poca gravedad, pero en algunos casos pueden tener graves consecuencias.</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">Principales Complicaciones</button>
+                    <div class="accordion-content">
+                        <ul>
+                           <li>Hematoma.</li>
+                           <li>Infecciones.</li>
+                           <li>Trombosis y/o obstrucción.</li>
+                           <li>Embolia.</li>
+                           <li>Isquemia distal.</li>
+                           <li>Lesión de estructuras nerviosas adyacentes.</li>
+                           <li>Fístula arteriovenosa iatrogénica.</li>
+                           <li>Mala señal de onda y dificultad para implementar monitorización avanzada.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="img-container fade-in">
+             <img src="https://somnozzz.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-65.png" alt="Anatomía de la arteria radial y cubital">
+        </div>
+
+        <section id="arteria-radial" class="fade-in">
+            <h2>Acceso por Arteria Radial</h2>
+            <div class="card">
+                <h3>Anatomía y Consideraciones</h3>
+                <p>La arteria radial es el acceso más habitual. Destacan su localización anatómica muy superficial en la muñeca y la poca variación interindividual en cuanto a su recorrido. Se origina desde la arteria braquial y junto a la arteria cubital, irriga todo el antebrazo y la mano a través de una densa red de arcos anastomóticos.</p>
+                <h3>Test de Allen</h3>
+                <p>Es una maniobra para evaluar el flujo sanguíneo colateral. Consiste en comprimir las arterias radial y cubital, pedir al paciente que abra y cierre la mano, y luego liberar la presión cubital para observar el tiempo de recuperación del color. Un tiempo mayor a 10 segundos se considera contraindicado.</p>
+                <div class="img-container">
+                    <img src="https://somnozzz.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-66.png" alt="Ilustración del Test de Allen">
+                </div>
+                <div class="pros-cons-grid">
+                    <div>
+                        <h3>Ventajas</h3>
+                        <ul>
+                            <li>Amplia experiencia.</li>
+                            <li>Baja tasa de complicaciones.</li>
+                            <li>Fácilmente accesible.</li>
+                            <li>Gran circulación colateral.</li>
+                            <li>Fácil de comprimir.</li>
+                            <li>No restringe el movimiento.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Desventajas</h3>
+                        <ul>
+                            <li>Lectura menos precisa por amplificación del pulso.</li>
+                            <li>Puede acodarse por la movilidad de la muñeca.</li>
+                            <li>Pequeña, puede dificultar el acceso.</li>
+                            <li>Sujeta a variaciones anatómicas.</li>
+                            <li>Complicaciones pueden ser desastrosas para la mano.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="img-container fade-in">
+             <img src="https://somnozzz.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-67.png" alt="Anatomía de la arteria femoral">
+        </div>
+
+        <section id="arteria-femoral" class="fade-in">
+            <h2>Acceso por Arteria Femoral</h2>
+            <div class="card">
+                <h3>Anatomía y Consideraciones</h3>
+                <p>La arteria femoral común es el principal riego sanguíneo del miembro inferior. Se encuentra en el triángulo femoral, lateral a la vena femoral y al nervio femoral. Su gran grosor facilita la inserción, pero su profundidad puede complicar la punción, especialmente en pacientes obesos. El riesgo de dañar estructuras adyacentes es mayor.</p>
+                 <div class="img-container">
+                    <img src="https://somnozzz.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-68.png" alt="Comparativa Arteria Radial y Femoral">
+                </div>
+                <div class="pros-cons-grid">
+                    <div>
+                        <h3>Ventajas</h3>
+                        <ul>
+                            <li>Más grande y proximal.</li>
+                            <li>Lectura más precisa de la presión central.</li>
+                            <li>Fácil de localizar.</li>
+                            <li>Accesible incluso durante la RCP.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Desventajas</h3>
+                        <ul>
+                            <li>Potencial hematoma retroperitoneal.</li>
+                            <li>Riesgo de punción de la vena femoral.</li>
+                            <li>Mayor riesgo de infección.</li>
+                            <li>Dificulta la movilización del paciente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="img-container fade-in">
+             <img src="https://somnozzz.cl/wp-content/uploads/2025/06/Agregar-un-subtitulo-69.png" alt="Técnica de canalización ecoguiada">
+        </div>
+
+        <section id="recomendaciones" class="fade-in">
+            <h2>Recomendaciones Generales</h2>
+            <div class="card card-highlight">
+                <h2 style="border: none; padding-left: 0;">Claves para el Éxito</h2>
+                <p>Independientemente del acceso, estas acciones aumentarán la probabilidad de éxito y reducirán los riesgos:</p>
+                <ul>
+                    <li><strong>Uso de ecografía:</strong> Es la principal recomendación para disminuir la tasa de complicaciones.</li>
+                    <li><strong>Postura neutra:</strong> Mantener una postura natural y protegida de la región anatómica.</li>
+                    <li><strong>Canalizar en plano:</strong> Permite una mejor visualización de la aguja y la arteria.</li>
+                    <li><strong>Comprobar el emplazamiento:</strong> Usar imagen ecográfica, gasometría y registro de onda.</li>
+                    <li><strong>Cuidado del catéter:</strong> Seguir protocolos como Bacteriemia Zero©.</li>
+                    <li><strong>Escaneo previo (radial):</strong> Evaluar ambos antebrazos para elegir el sitio óptimo.</li>
+                </ul>
+                <p style="text-align:center; margin-top: 30px; font-weight: bold;">
+                    Para conocer más sobre la técnica de canalización ecoguiada y sus complicaciones, 
+                    <a href="#">matricúlate en el curso impartido por Ángel Ruíz Aguilar.</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="fade-in">
+            <h2>Bibliografía</h2>
+            <div class="card">
+                <ol>
+                    <li>Hambsch, Z. J., et al. (2015). Arterial Catheterization and Infection...</li>
+                    <li>Pierre L, Pasrija D, Keenaghan M. (2021). Arterial Lines...</li>
+                    <li>Yartsev, A. (2018). Factors involved in site selection for arterial cannulation...</li>
+                    <li>Liu, Y. T., & Geffen, D. (2020). How To Do Radial Artery Cannulation...</li>
+                    <li>Hager HH, Burns B. (2021). Artery Cannulation...</li>
+                    <li>Carmona Monge, F., et al. (2011). Canalización arterial radial guiada por ultrasonidos...</li>
+                    <li>Guedes, A. (2012). Transradial Approach for Coronary Interventions...</li>
+                    <li>Bangalore, S., & Bhatt, D. L. (2011). Femoral Arterial Access and Closure...</li>
+                    <li>Bangalore, S., & Bhatt, D. L. (2011b). Femoral Arterial Access and Closure...</li>
+                    <li>O’Leary, C. (2021). Femoral artery...</li>
+                    <li>Romeu-Bordas, Ó., & Ballesteros-Peña, S. (2017). Validez y fiabilidad del test modificado de Allen...</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Diseño web interactivo creado por un experto para la presentación de contenido médico. © 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- Lógica para el Acordeón ---
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+
+                header.addEventListener('click', () => {
+                    // Cierra otros acordeones abiertos si quieres que solo uno esté abierto a la vez
+                    // accordionItems.forEach(otherItem => {
+                    //     if (otherItem !== item) {
+                    //         otherItem.classList.remove('active');
+                    //         otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                    //     }
+                    // });
+
+                    item.classList.toggle('active');
+                    if (item.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // --- Lógica para Animaciones al Desplazar (Scroll) ---
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2, // El elemento se considera visible cuando el 20% está en pantalla
+                rootMargin: "0px 0px -50px 0px" // Reduce el área de detección para que la animación se active un poco más tarde
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</body>
+</html>
